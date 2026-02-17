@@ -4,6 +4,7 @@ import './App.css'
 type Language = 'ko' | 'ja' | 'en'
 
 const channelUrl = 'https://www.youtube.com/@jeonfamily'
+const formspreeUrl = 'https://formspree.io/f/xkovbpwq'
 
 const content: Record<
   Language,
@@ -22,6 +23,12 @@ const content: Record<
     sectionScheduleBody: string
     sectionContactTitle: string
     sectionContactBody: string
+    contactAction: string
+    formTitle: string
+    formName: string
+    formEmail: string
+    formMessage: string
+    formSubmit: string
     cardLabels: {
       intro: string
       video: string
@@ -50,6 +57,12 @@ const content: Record<
     sectionContactTitle: '문의 및 협업',
     sectionContactBody:
       '채널 관련 문의는 유튜브 채널 소개란의 이메일로 연락 부탁드립니다.',
+    contactAction: '문의 폼 열기',
+    formTitle: '문의 및 협업 메일 보내기',
+    formName: '이름',
+    formEmail: '보내는 이 메일',
+    formMessage: '문의 내용',
+    formSubmit: '메일 보내기',
     cardLabels: {
       intro: '소개',
       video: '콘텐츠',
@@ -77,6 +90,12 @@ const content: Record<
     sectionContactTitle: 'お問い合わせ',
     sectionContactBody:
       'お問い合わせやコラボのご相談は、YouTubeチャンネル概要欄のメールへご連絡ください。',
+    contactAction: 'お問い合わせフォーム',
+    formTitle: 'お問い合わせ・コラボ連絡',
+    formName: 'お名前',
+    formEmail: '返信用メール',
+    formMessage: 'お問い合わせ内容',
+    formSubmit: '送信する',
     cardLabels: {
       intro: '紹介',
       video: '動画',
@@ -104,6 +123,12 @@ const content: Record<
     sectionContactTitle: 'Contact',
     sectionContactBody:
       'For collaborations or channel questions, please use the email listed in the YouTube channel description.',
+    contactAction: 'Open Contact Form',
+    formTitle: 'Send a Contact Email',
+    formName: 'Your Name',
+    formEmail: 'Your Email',
+    formMessage: 'Message',
+    formSubmit: 'Send Message',
     cardLabels: {
       intro: 'About',
       video: 'Videos',
@@ -169,7 +194,32 @@ function App() {
             <p className="card-tag">{t.cardLabels.contact}</p>
             <h2>{t.sectionContactTitle}</h2>
             <p>{t.sectionContactBody}</p>
+            <a className="btn secondary contact-btn" href="#contact-form">
+              {t.contactAction}
+            </a>
           </article>
+        </section>
+
+        <section id="contact-form" className="contact-form-wrap">
+          <h2>{t.formTitle}</h2>
+          <form action={formspreeUrl} method="POST" className="contact-form">
+            <input type="text" name="_subject" value="Jeon Family Contact" readOnly hidden />
+            <label>
+              {t.formName}
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              {t.formEmail}
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              {t.formMessage}
+              <textarea name="message" rows={6} required />
+            </label>
+            <button className="btn primary submit-btn" type="submit">
+              {t.formSubmit}
+            </button>
+          </form>
         </section>
       </main>
     </div>
