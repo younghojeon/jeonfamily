@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeon Family Contact</title>
+    <style>
+      :root {
+        color-scheme: only light;
+      }
+      body {
+        margin: 0;
+        background: #f1f5f9;
+        font-family: "Noto Sans KR", "Noto Sans JP", "Segoe UI", sans-serif;
+        color: #0f172a;
+      }
+      .wrap {
+        max-width: 680px;
+        margin: 40px auto;
+        padding: 0 16px;
+      }
+      .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 20px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+      }
+      p {
+        margin: 0 0 16px;
+        color: #334155;
+      }
+      form {
+        display: grid;
+        gap: 12px;
+      }
+      label {
+        display: grid;
+        gap: 6px;
+        font-size: 0.9rem;
+        color: #334155;
+      }
+      input,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        padding: 10px 11px;
+        font-size: 0.95rem;
+        font: inherit;
+        background: #ffffff;
+        color: #0f172a;
+      }
+      textarea {
+        resize: vertical;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        background: #0f172a;
+        color: #ffffff;
+        padding: 11px 16px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: fit-content;
+      }
+      .hint {
+        margin-top: 12px;
+        font-size: 0.82rem;
+        color: #64748b;
+      }
+      @media (max-width: 760px) {
+        .wrap {
+          margin: 20px auto;
+        }
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>문의 및 협업 | Contact</h1>
+        <p>아래 폼으로 보내주시면 전씨네 채널 메일로 전달됩니다.</p>
+        <form action="https://formspree.io/f/xkovbpwq" method="POST">
+          <input type="hidden" name="_subject" value="Jeon Family Contact" />
+          <label>
+            이름 | Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            보내는 이 메일 | Reply Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            문의 내용 | Message
+            <textarea name="message" rows="7" required></textarea>
+          </label>
+          <button type="submit">메일 보내기 | Send</button>
+        </form>
+        <p class="hint">This form uses POST to Formspree.</p>
+      </section>
+    </main>
+  </body>
+</html>

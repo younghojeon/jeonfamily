@@ -4,7 +4,7 @@ import './App.css'
 type Language = 'ko' | 'ja' | 'en'
 
 const channelUrl = 'https://www.youtube.com/@jeonfamily'
-const formspreeUrl = 'https://formspree.io/f/xkovbpwq'
+const contactPageUrl = '/contact.html'
 
 const content: Record<
   Language,
@@ -174,7 +174,7 @@ function App() {
             <p className="card-tag">{t.cardLabels.contact}</p>
             <h2>{t.sectionContactTitle}</h2>
             <p>{t.sectionContactBody}</p>
-            <a className="btn secondary contact-btn" href={formspreeUrl} target="_blank" rel="noreferrer">
+            <a className="btn secondary contact-btn" href={contactPageUrl} target="_blank" rel="noreferrer">
               {t.contactAction}
             </a>
           </article>
